@@ -1,0 +1,14 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/About", "destination": "/about.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/Process", "destination": "/process.html" },
+    { "source": "/process", "destination": "/process.html" },
+    { "source": "/Contact", "destination": "/contact.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/Products", "destination": "/products.html" },
+    { "source": "/products", "destination": "/products.html" }
+  ]
+}

@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Process | Appollo Products</title>
+  <meta name="description" content="Discover how Appollo Products Ltd crafts Zambia's finest kombucha — from sourcing the finest ingredients to bottling every probiotic-rich drop.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="Assets/favicon.ico">
+  <style>
+
+    /* ═══════════════════════════════════════════════════════
+       PROCESS HERO — FRESH LIGHT PANORAMIC
+       Palette: warm cream #faf9f5 · sage #eef7ee · amber glow
+       Two-column: left text + right animated step wheel
+    ═══════════════════════════════════════════════════════ */
+
+    /* Breadcrumb 
+    .breadcrumb-bar {
+      position: fixed; top: 72px; left: 0; right: 0; z-index: 99;
+      background: rgba(255,255,255,0.96); backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(30,107,46,0.1); padding: 0 2rem;
+    }
+    .breadcrumb-bar-inner {
+      max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; height: 38px; gap: 0.5rem;
+    }
+    .breadcrumb-bar a, .breadcrumb-bar span {
+      font-family: 'Poppins', sans-serif; font-size: 12px; font-weight: 500;
+      color: rgba(11,48,9,0.45); text-decoration: none; transition: color 0.2s;
+    }
+    .breadcrumb-bar a:hover { color: #1e6b2e; }
+    .breadcrumb-bar .bc-current { color: #1e6b2e; font-weight: 600; }
+    .breadcrumb-bar .bc-sep { font-size: 10px; opacity: 0.3; }
+
+    /* ── Hero section ── */
+    .proc-hero {
+      position: relative;
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 80px;   /* navbar 72 + bc 38 = 110, plus buffer */
+      background: var(--green-light);
+      overflow: hidden;
+    }
+
+    /* Large circle background blobs */
+    .proc-hero::before {
+      content: '';
+      position: absolute; top: -200px; right: -200px;
+      width: 700px; height: 700px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(100,180,80,0.1) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    .proc-hero::after {
+      content: '';
+      position: absolute; bottom: -140px; left: -120px;
+      width: 520px; height: 520px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,191,0,0.08) 0%, transparent 68%);
+      pointer-events: none;
+    }
+
+    /* Subtle grid dots */
+    .hero-grid-dots {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: radial-gradient(circle, rgba(30,107,46,0.05) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    /* Animated blobs */
+    .hero-blob { position: absolute; border-radius: 50%; filter: blur(68px); pointer-events: none; animation: blob-float 10s ease-in-out infinite; }
+    .hero-blob-a { width: 360px; height: 360px; background: rgba(100,190,80,0.12);  top: 8%; right: 6%;   animation-delay: 0s; }
+    .hero-blob-b { width: 260px; height: 260px; background: rgba(255,191,0,0.09);   bottom: 12%; left: 6%;  animation-delay: -5s; }
+    .hero-blob-c { width: 200px; height: 200px; background: rgba(174,235,5,0.08);   top: 50%; left: 38%;  animation-delay: -3s; }
+    @keyframes blob-float {
+      0%,100%{transform:translate(0,0) scale(1);}
+      33%{transform:translate(16px,-22px) scale(1.04);}
+      66%{transform:translate(-12px,14px) scale(0.97);}
+    }
+
+    /* Diagonal stripe accent — very subtle */
+    .hero-stripe {
+      position: absolute; inset: 0; pointer-events: none;
+      background-image: repeating-linear-gradient(
+        62deg, transparent, transparent 80px,
+        rgba(30,107,46,0.018) 80px, rgba(30,107,46,0.018) 81px
+      );
+    }
+
+    /* Main layout */
+    .proc-hero-content {
+      align-items: center;
+      position: relative; z-index: 5;
+      max-width: 1200px; margin: 0 auto; width: 100%;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 5rem; align-items: center;
+      animation: hero-reveal 0.9s ease 0.1s both;
+    }
+    @keyframes hero-reveal {
+      from { opacity: 0; transform: translateY(28px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── LEFT: text ── */
+    /* .proc-hero-text { } */
+
+    .proc-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-family: 'Poppins', sans-serif; font-size: 10.5px; font-weight: 700;
+      letter-spacing: 2.5px; text-transform: uppercase;
+      color: #2e7d32; background: rgba(46,125,50,0.08);
+      border: 1px solid rgba(46,125,50,0.18);
+      padding: 7px 18px; border-radius: 30px; margin-bottom: 1.5rem;
+    }
+    .eyebrow-pulse {
+      width: 7px; height: 7px; border-radius: 50%; background: #66bb6a;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{opacity:1;transform:scale(1);} 50%{opacity:0.4;transform:scale(0.65);} }
+
+    .proc-hero-text h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(34px, 5vw, 64px);
+      font-weight: 900; color: #0b3009;
+      line-height: 1.06; letter-spacing: -0.022em;
+      margin-bottom: 1rem;
+    }
+    .proc-hero-text h1 .h1-italic { font-style: italic; color: #2e7d32; }
+
+    /* Wavy underline accent on one word */
+    .h1-underline {
+      position: relative; display: inline-block;
+    }
+    .h1-underline::after {
+      content: '';
+      position: absolute; left: 0; right: 0; bottom: -5px; height: 6px;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 12'%3E%3Cpath d='M2 8 Q50 2 100 8 Q150 14 198 5' stroke='%2388c057' stroke-width='3.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E")
+        no-repeat center / 100% 100%;
+    }
+
+    .proc-hero-sub {
+      font-size: 19px; color: #4a6e4c; line-height: 1.78;
+      max-width: 460px; margin-bottom: 2rem;
+    }
+
+    /* Stat chips row */
+    .proc-stat-row {
+      display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2.3rem;
+    }
+    .proc-stat-chip {
+      display: flex; flex-direction: column; align-items: center;
+      background: #fff; border: 1px solid rgba(46,125,50,0.15);
+      border-radius: 14px; padding: 0.85rem 1.3rem;
+      box-shadow: 0 2px 12px rgba(30,107,46,0.07);
+      transition: transform 0.22s, box-shadow 0.22s;
+      min-width: 76px;
+    }
+    .proc-stat-chip:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(30,107,46,0.12); }
+    .proc-stat-num { font-family: 'Poppins', sans-serif; font-size: 22px; font-weight: 900; color: #2e7d32; line-height: 1; }
+    .proc-stat-lbl { font-family: 'Poppins', sans-serif; font-size: 9px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #7aaa7e; margin-top: 0.2rem; text-align: center; }
+
+    /* CTA buttons */
+    .proc-hero-btns { display: flex; gap: 0.9rem; flex-wrap: wrap; }
+    .btn-leaf {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #2e7d32; color: #fff;
+      font-family: 'Poppins', sans-serif; font-size: 13.5px; font-weight: 700;
+      padding: 13px 28px; border-radius: 40px; text-decoration: none;
+      letter-spacing: 0.3px; transition: all 0.3s ease;
+      box-shadow: 0 4px 18px rgba(46,125,50,0.26);
+    }
+    .btn-leaf:hover { background: #1b5e20; transform: translateY(-3px); box-shadow: 0 10px 28px rgba(46,125,50,0.3); }
+    .btn-sage-outline {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(46,125,50,0.07); color: #2e7d32;
+      font-family: 'Poppins', sans-serif; font-size: 13.5px; font-weight: 600;
+      padding: 13px 28px; border-radius: 40px; border: 1.5px solid rgba(46,125,50,0.22);
+      text-decoration: none; letter-spacing: 0.3px; transition: all 0.3s ease;
+    }
+    .btn-sage-outline:hover { background: rgba(46,125,50,0.13); border-color: rgba(46,125,50,0.4); transform: translateY(-2px); }
+
+    /* ── RIGHT: Step wheel / orbit ── */
+    .proc-hero-visual {
+      height: 100%;
+      display: flex;
+       justify-content: center; 
+       align-items: center;
+    }
+
+    .step-orbit {
+      position: relative;
+      width: 400px; height: 400px;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Concentric rings */
+    .orbit-ring {
+      position: absolute; border-radius: 50%; border: 1.5px dashed;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+    }
+    .orbit-ring-1 { width: 380px; height: 380px; border-color: rgba(46,125,50,0.15); animation: spin-ring 32s linear infinite; }
+    .orbit-ring-2 { width: 290px; height: 290px; border-color: rgba(100,180,80,0.12); animation: spin-ring 22s linear infinite reverse; }
+    .orbit-ring-3 { width: 200px; height: 200px; border-color: rgba(174,235,5,0.15); animation: spin-ring 16s linear infinite; }
+    @keyframes spin-ring { from{transform:translate(-50%,-50%) rotate(0deg);} to{transform:translate(-50%,-50%) rotate(360deg);} }
+
+    /* Soft glow at center */
+    .orbit-glow {
+      position: absolute; width: 180px; height: 180px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(174,235,5,0.14) 0%, rgba(100,180,80,0.07) 50%, transparent 80%);
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      animation: glow-breathe 5s ease-in-out infinite;
+    }
+    @keyframes glow-breathe { 0%,100%{opacity:0.7;transform:translate(-50%,-50%) scale(1);} 50%{opacity:1;transform:translate(-50%,-50%) scale(1.1);} }
+
+    /* Centre card */
+    .orbit-center {
+      position: relative; z-index: 10;
+      width: 160px; height: 160px; border-radius: 50%;
+      background: #fff;
+      border: 2px solid rgba(46,125,50,0.16);
+      box-shadow: 0 8px 36px rgba(30,107,46,0.13), 0 2px 8px rgba(30,107,46,0.07);
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 0.3rem;
+      animation: center-float 6s ease-in-out infinite;
+      
+    }
+    @keyframes center-float { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+    .orbit-center-icon { font-size: 42px; line-height: 1; }
+    .orbit-center-title {
+      font-family: 'Poppins', sans-serif; font-size: 10px; font-weight: 800;
+      color: #2e7d32; letter-spacing: 1.5px; text-transform: uppercase;
+    }
+    .orbit-center-sub { font-size: 10px; color: #7aaa7e; line-height: 1.4; }
+
+    /* Orbiting step nodes */
+    .step-node {
+      position: absolute;
+      top: 50%;
+      left:50%;
+      transform:translate(-50%,-50%);
+      transform-origin:center;
+      width: 56px; height: 56px; border-radius: 50%;
+      background: #fff;
+      border: 1.5px solid rgba(46,125,50,0.18);
+      box-shadow: 0 4px 16px rgba(30,107,46,0.1);
+      display: flex; flex-direction: column; align-items: center; justify-content:center ;
+      font-size: 18px; gap: 1px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: default;
+      /* Positioning handled by CSS variables */
+      --angle: 0deg;
+      --radius: 190px;
+      transform: translate(-50%, -50%) rotate(var(--angle)) translate(var(--radius)) rotate(calc(-1 * var(--angle)));
+    }
+    .step-node-inner {
+      width: 100%; height: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      animation: node-bob var(--dur, 5s) ease-in-out infinite var(--delay, 0s);
+    }
+    .step-node:hover {
+  transform:
+    translate(-50%, -50%)
+    rotate(var(--angle))
+    translate(var(--radius))
+    rotate(calc(-1 * var(--angle)))
+    scale(1.18);
+
+  box-shadow: 0 8px 24px rgba(30,107,46,0.18);
+}
+    .step-node-num {
+      font-family: 'Poppins', sans-serif; font-size: 8px; font-weight: 800;
+      color: #7aaa7e; letter-spacing: 0.5px; line-height: 1;
+    }
+    @keyframes node-bob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-7px) scale(1.04); }
+    }
+
+    /* Position each node around the ring starting from the top (-90deg) */
+    .node-1 { --angle: -90deg; }
+    .node-2 { --angle: -38.57deg; }
+    .node-3 { --angle: 12.86deg; }
+    .node-4 { --angle: 64.29deg; }
+    .node-5 { --angle: 115.71deg; }
+    .node-6 { --angle: 167.14deg; }
+    .node-7 { --angle: 218.57deg; }
+    /* Scroll cue */
+    .proc-scroll-cue {
+      position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+      z-index: 10; display: flex; flex-direction: column; align-items: center;
+      gap: 0.35rem; animation: bounce-down 2.3s ease-in-out infinite;
+      text-decoration: none;
+    }
+    .proc-scroll-cue span { font-family:'Poppins',sans-serif; font-size:9px; letter-spacing:2.5px; text-transform:uppercase; color:rgba(30,107,46,0.4); font-weight:600; }
+    .proc-scroll-cue svg { color: rgba(30,107,46,0.35); }
+    @keyframes bounce-down { 0%,100%{transform:translateX(-50%) translateY(0);} 50%{transform:translateX(-50%) translateY(6px);} }
+
+    /* ════════════════════════════════════
+       STATS BAR — white/light
+    ════════════════════════════════════ */
+    .steps-count-bar {
+      background: var(--off-white); padding: 2.5rem 2rem;
+      border-bottom: 1px solid rgba(46,125,50,0.1);
+      box-shadow: 0 2px 18px rgba(30,107,46,0.06);
+    }
+    .steps-count-inner { max-width:1200px; 
+      margin:0 auto;
+       display:flex; 
+       align-items:center; 
+       justify-content:space-between;
+        gap:2rem;
+         flex-wrap:wrap; 
+        }
+    .steps-count-text h3 { font-family:'Poppins',sans-serif; 
+    font-size:clamp(18px,2.5vw,24px);
+     font-weight:800; 
+     color:#0b3009; 
+     margin-bottom:0.3rem;
+     }
+    .steps-count-text p { color:#7aaa7e;
+       font-size:14px; 
+      }
+    .steps-count-nums {
+       display:flex;
+        gap:2rem; 
+        flex-wrap:wrap;
+       }
+    .count-item {
+       text-align:center;
+       }
+    .count-num {
+       font-family:'Poppins',sans-serif; 
+       font-size:clamp(28px,3.5vw,40px); 
+       font-weight:900;
+       color:#2e7d32; 
+       line-height:1; 
+       display:block;
+       }
+    .count-label {
+       font-size:11px; 
+       color:#7aaa7e; 
+       font-weight:500; 
+       letter-spacing:0.5px; 
+       text-transform:uppercase; 
+       margin-top:0.3rem; 
+      }
+    .count-divider { 
+      width:1px;
+       background:rgba(46,125,50,0.12);
+        align-self:stretch;
+       }
+
+    /* ══════════════════════════════════════
+       REST OF PAGE (intro, steps, quality, variants, testimonials, cta)
+    ══════════════════════════════════════ */
+
+    .proc-steps-section { padding:5rem 2rem; background:#f8d46f; position:relative; overflow:hidden; }
+    .proc-steps-section .section-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+    .proc-steps-header { text-align:center; margin-bottom:3rem; }
+    .proc-steps-header .section-label { font-family:'Poppins',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:var(--green); font-weight:600; display:block; margin-bottom:0.7rem; }
+    .proc-steps-header h2 { font-size:clamp(26px,3.5vw,40px); font-weight:900; color:var(--text-heading); margin-bottom:0.8rem; letter-spacing:-0.02em; }
+    .proc-steps-header p { color:var(--green); font-size:18px; max-width:540px; margin:0 auto; line-height:1.6; }
+    .proc-steps-list { display:flex; flex-direction:column; gap:0; }
+    .proc-step { display:grid; grid-template-columns:1fr 80px 1fr; gap:0; align-items:center; position:relative; }
+    .proc-step:nth-child(even) .proc-step-card { order:3; }
+    .proc-step:nth-child(even) .proc-step-spine { order:2; }
+    .proc-step:nth-child(even) .proc-step-empty { order:1; }
+    .proc-step-spine { display:flex; flex-direction:column; align-items:center; position:relative; }
+    .proc-step-spine-line { width:2px; flex:1; min-height:20px; background:linear-gradient(to bottom,var(--green-light),var(--green-mid)); }
+    .proc-step-spine-line.top { background:linear-gradient(to bottom,transparent,var(--green-mid)); }
+    .proc-step-spine-line.bottom { background:linear-gradient(to bottom,var(--green-mid),transparent); }
+    .proc-step-dot { width:56px; height:56px; border-radius:50%; background:var(--green-dark); display:flex; align-items:center; justify-content:center; font-family:'Poppins',sans-serif; font-size:16px; font-weight:800; color:#aeeb05; border:3px solid var(--white); box-shadow:0 0 0 4px var(--green-light),var(--shadow-md); flex-shrink:0; z-index:2; position:relative; transition:transform 0.3s ease,box-shadow 0.3s ease; }
+    .proc-step:hover .proc-step-dot { transform:scale(1.12); box-shadow:0 0 0 6px rgba(30,107,46,0.2),var(--shadow-lg); }
+    .proc-step-card { background:var(--white); border-radius:var(--radius-lg); padding:2rem 2.2rem; margin:0.75rem 1.5rem; box-shadow:var(--shadow-sm); border:1px solid var(--border); transition:transform 0.35s var(--ease-out),box-shadow 0.35s ease; position:relative; overflow:hidden; }
+    .proc-step-card::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(to right,var(--green-mid),var(--green-light)); border-radius:3px 3px 0 0; }
+    .proc-step-card:hover { transform:translateY(-5px); box-shadow:var(--shadow-lg); }
+    .proc-step-icon { font-size:36px; margin-bottom:0.8rem; display:block; }
+    .proc-step-label { font-family:'Poppins',sans-serif; font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--green-mid); margin-bottom:0.4rem; }
+    .proc-step-card h3 { font-size:18px; font-weight:800; color:var(--text-heading); margin-bottom:0.7rem; line-height:1.25; }
+    .proc-step-card p { font-size:16.5px; color:var(--text-body); line-height:1.6; }
+    .proc-step-detail { display:flex; align-items:center; gap:0.5rem; margin-top:1rem; padding-top:1rem; border-top:1px solid var(--border); font-family:'Poppins',sans-serif; font-size:11.5px; color:var(--text-muted); font-weight:500; }
+    .proc-step-detail-dot { width:6px; height:6px; border-radius:50%; background:var(--green-mid); flex-shrink:0; }
+    .quality-section { padding:6rem 2rem; background:var(--green-deep); position:relative; overflow:hidden; }
+    .quality-section::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 20% 50%,rgba(30,107,46,0.28) 0%,transparent 55%),radial-gradient(ellipse at 85% 20%,rgba(184,120,0,0.12) 0%,transparent 50%); pointer-events:none; }
+    .quality-section .section-inner { max-width:1200px; margin:0 auto; position:relative; z-index:2; }
+    .quality-section .section-header { text-align:center; margin-bottom:4rem; }
+    .quality-section .section-header .section-label { font-family:'Poppins',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:rgba(174,235,5,0.7); font-weight:600; display:block; margin-bottom:0.7rem; }
+    .quality-section .section-header h2 { font-size:clamp(26px,3.5vw,40px); font-weight:900; color:#aeeb05; margin-bottom:0.8rem; }
+    .quality-section .section-header p { color:rgba(255,255,255,0.55); font-size:18px; max-width:520px; margin:0 auto; line-height:1.6; }
+    .quality-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.8rem; }
+    .quality-card { background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08); border-radius:var(--radius-lg); padding:2rem 1.8rem; text-align:center; transition:transform 0.3s ease,background 0.3s ease,border-color 0.3s ease; }
+    .quality-card:hover { transform:translateY(-6px); background:rgba(255,255,255,0.09); border-color:rgba(174,235,5,0.22); }
+    .quality-icon { font-size:40px; display:block; margin-bottom:1.1rem; }
+    .quality-card h3 { font-size:17px; font-weight:700; color:#aeeb05; margin-bottom:0.7rem; }
+    .quality-card p { font-size:16px; color:rgba(255,255,255,0.6); line-height:1.6; }
+    .variants-section { padding:6rem 2rem; background:#e9d5a8; }
+    .variants-section .section-inner { max-width:1200px; margin:0 auto; }
+    .variants-section .section-header { text-align:center; margin-bottom:4rem; }
+    .variants-section .section-header .section-label { font-family:'Poppins',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:var(--green); font-weight:600; display:block; margin-bottom:0.7rem; }
+    .variants-section .section-header h2 { font-size:clamp(26px,3.5vw,40px); font-weight:900; color:var(--text-heading); margin-bottom:0.8rem; }
+    .variants-section .section-header p { color:var(--text-muted); font-size:18px; max-width:520px; margin:0 auto; line-height:1.6; }
+    .variants-grid { display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; }
+    .variant-card { border-radius:var(--radius-lg); overflow:hidden; box-shadow:var(--shadow-md); transition:transform 0.35s var(--ease-out),box-shadow 0.35s ease; }
+    .variant-card:hover { transform:translateY(-8px); box-shadow:var(--shadow-lg); }
+    .variant-img-zone { height:280px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+    .variant-card.raw .variant-img-zone { background:linear-gradient(160deg,#0d3b1a 0%,#1e6b2e 100%); }
+    .variant-card.ginger .variant-img-zone { background:linear-gradient(160deg,#2b1800 0%,#5c3300 100%); }
+    .variant-glow { position:absolute; width:220px; height:220px; border-radius:50%; opacity:0.2; left:50%; top:50%; transform:translate(-50%,-50%); animation:glow-pulse 4s ease-in-out infinite; }
+    .variant-card.raw .variant-glow { background:radial-gradient(circle,#aeeb05 0%,transparent 70%); }
+    .variant-card.ginger .variant-glow { background:radial-gradient(circle,#ffd86a 0%,transparent 70%); animation-delay:1.5s; }
+    .variant-img-zone img { 
+      width:200px; 
+      height:250px;
+       object-fit:contain; 
+       position:relative; 
+       z-index:2; 
+       filter:drop-shadow(0 16px 36px rgba(0,0,0,0.4)); 
+       animation:float 6s ease-in-out infinite; 
+      }
+    .variant-card.ginger .variant-img-zone img {
+       animation-delay:0.8s;
+       }
+    .variant-badge {
+       position:absolute;
+        top:1.2rem; 
+        right:1.2rem;
+         font-family:'Poppins',sans-serif; 
+         font-size:10px;
+          font-weight:700; 
+          letter-spacing:1.5px; 
+          text-transform:uppercase; 
+          padding:5px 14px; 
+          border-radius:var(--radius-full);
+           z-index:5; 
+          }
+    .variant-card.raw .variant-badge { 
+      background:rgba(174,235,5,0.15); 
+      color:#aeeb05;
+       border:1px solid rgba(174,235,5,0.3); 
+      }
+    .variant-card.ginger .variant-badge {
+       background:rgba(255,216,106,0.15); 
+       color:var(--gold-warm); 
+       border:1px solid rgba(255,216,106,0.3); 
+      }
+    .variant-info { padding:1.8rem 2rem 2rem; background:var(--white); }
+    .variant-name { font-family:'Poppins',sans-serif; font-size:20px; font-weight:800; color:var(--text-heading); margin-bottom:0.5rem; }
+    .variant-tagline { font-size:13.5px; color:var(--text-muted); font-style:italic; margin-bottom:1.2rem; }
+    .variant-traits { display:flex; flex-wrap:wrap; gap:0.5rem; }
+    .vtrait { font-family:'Poppins',sans-serif; font-size:11px; font-weight:600; padding:5px 13px; border-radius:var(--radius-full); }
+    .variant-card.raw .vtrait { background:var(--green-light); color:var(--green-dark); border:1px solid rgba(30,107,46,0.15); }
+    .variant-card.ginger .vtrait { background:var(--gold-pale); color:var(--gold); border:1px solid rgba(184,120,0,0.15); }
+    .proc-testimonials { padding:6rem 2rem; background:var(--white); }
+    .proc-testimonials .section-inner { max-width:1200px; margin:0 auto; }
+    .proc-testimonials .section-header { text-align:center; margin-bottom:4rem; }
+    .proc-testimonials .section-header .section-label { font-family:'Poppins',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:var(--green); font-weight:600; display:block; margin-bottom:0.7rem; }
+    .proc-testimonials .section-header h2 { font-size:clamp(26px,3.5vw,38px); font-weight:900; color:var(--text-heading); margin-bottom:0.5rem; }
+    .proc-testimonials .section-header p { color:var(--text-muted); font-size:16px; }
+    .proc-cta { padding:5rem 2rem; background:var(--green-dark); text-align:center; position:relative; overflow:hidden; }
+    .proc-cta::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at center,rgba(30,107,46,0.45) 0%,transparent 70%); pointer-events:none; }
+    .proc-cta .section-inner { position:relative; z-index:2; max-width:660px; margin:0 auto; }
+    .proc-cta .section-label { font-family:'Poppins',sans-serif; font-size:11px; text-transform:uppercase; letter-spacing:3px; color:rgba(174,235,5,0.65); font-weight:600; display:block; margin-bottom:0.8rem; }
+    .proc-cta h2 { font-size:clamp(24px,3vw,38px); font-weight:900; color:#aeeb05; margin-bottom:1rem; }
+    .proc-cta p { color:rgba(255,255,255,0.62); font-size:16px; margin-bottom:2.5rem; line-height:1.72; }
+    .proc-cta-btns { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; }
+    .btn-gold { display:inline-flex; align-items:center; justify-content:center; gap:0.5rem; background:#aeeb05; color: black; font-family:'Poppins',sans-serif; font-size:14px; font-weight:700; padding:14px 32px; border-radius:var(--radius-full); border:none; letter-spacing:0.3px; transition:all 0.3s ease; text-decoration:none; cursor:pointer; }
+    .btn-gold:hover { background:var(--green-dark);  color:white;  transform:translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,0.25); }
+    .btn-outline-white { display:inline-flex; align-items:center; justify-content:center;  border-color:#aeeb05 ;   background:transparent; color:#aeeb05; font-family:'Poppins',sans-serif; font-size:14px; font-weight:600; padding:14px 32px; border-radius:var(--radius-full); border:1.5px solid #aeeb05; letter-spacing:0.3px; transition:all 0.3s ease; text-decoration:none; }
+    .btn-outline-white:hover { background:var(--green-dark); border-color:#aeeb05; color:white; transform:translateY(-2px); }
+
+    /* ══ RESPONSIVE ══ */
+    @media(max-width:1100px){ .quality-grid{grid-template-columns:repeat(2,1fr);} .proc-intro .section-inner{gap:3.5rem;} }
+    @media(max-width:900px){
+      .proc-hero{padding:130px 1.5rem 70px; min-height:auto;}
+      .proc-hero-content{grid-template-columns:1fr; text-align:center; gap:3rem;}
+      .proc-stat-row{justify-content:center;}
+      .proc-hero-btns{justify-content:center;}
+      .proc-hero-sub{margin:0 auto 2rem;}
+      .step-orbit{width:300px; height:300px;}
+      .orbit-ring-1{width:284px; height:284px;}
+      .orbit-ring-2{width:218px; height:218px;}
+      .orbit-ring-3{width:152px; height:152px;}
+      .orbit-center{width:120px; height:120px;}
+      .orbit-center-icon{font-size:32px;}
+      .step-node{width:46px; height:46px; font-size:15px;}
+      .step-node { --radius: 142px; }
+      .node-1 { --angle: -90deg; }
+      .node-2 { --angle: -38.57deg; }
+      .node-3 { --angle: 12.86deg; }
+      .node-4 { --angle: 64.29deg; }
+      .node-5 { --angle: 115.71deg; }
+      .node-6 { --angle: 167.14deg; }
+      .node-7 { --angle: 218.57deg; }
+
+      .proc-step{grid-template-columns:50px 1fr;}
+      .proc-step-empty{display:none;}
+      .proc-step:nth-child(even) .proc-step-card,.proc-step:nth-child(even) .proc-step-spine,.proc-step:nth-child(even) .proc-step-empty{order:unset;}
+      .proc-step-spine{grid-column:1; grid-row:1/span 2;}
+      .proc-step-card{grid-column:2; margin:0.5rem 0 0.5rem 1rem;}
+      .quality-grid{grid-template-columns:1fr 1fr; gap:1.4rem;}
+      .variants-grid{grid-template-columns:1fr; max-width:440px; margin:0 auto;}
+    }
+    @media(max-width:768px){
+      .breadcrumb-bar{top:56px;}
+      .proc-hero{padding:116px 1.25rem 60px;}
+      .proc-steps-section,.quality-section,.variants-section,.proc-testimonials,.proc-cta,.proc-intro{padding:5rem 1.25rem;}
+      .steps-count-bar{padding:2rem 1.25rem;}
+      .steps-count-inner{flex-direction:column; gap:1.5rem; align-items:flex-start;}
+      .steps-count-nums{gap:1.5rem;}
+      .count-divider{display:none;}
+      .proc-step-card{padding:1.5rem 1.6rem; margin:0.4rem 0 0.4rem 0.8rem;}
+      .proc-step-dot{width:46px; height:46px; font-size:14px;}
+      .quality-grid{grid-template-columns:1fr; max-width:400px; margin:0 auto; gap:1.2rem;}
+      .proc-cta-btns{flex-direction:column; align-items:center;}
+      .btn-gold,.btn-outline-white{width:100%; max-width:300px;}
+      .proc-hero-btns{flex-direction:column; align-items:center; gap:0.8rem;}
+      .btn-leaf,.btn-sage-outline{width:100%; max-width:280px; justify-content:center;}
+      .proc-stat-row{gap:0.5rem;}
+      .proc-stat-chip{padding:0.75rem 1rem; min-width:68px;}
+      .proc-scroll-cue{display:none;}
+    }
+    @media(max-width:576px){
+      .proc-hero{padding:108px 1rem 50px;}
+      .proc-hero-text h1{font-size:30px;}
+      .proc-hero-sub{font-size:15px;}
+      .step-orbit{width:250px; height:250px;}
+      .orbit-ring-1{width:236px; height:236px;}
+      .orbit-ring-2{width:180px; height:180px;}
+      .orbit-ring-3{width:126px; height:126px;}
+      .orbit-center{width:100px; height:100px;}
+      .orbit-center-icon{font-size:28px;}
+      .step-node { --radius: 118px; }
+      .proc-stat-num{font-size:19px;}
+      .proc-steps-section,.quality-section,.variants-section,.proc-testimonials,.proc-cta,.proc-intro{padding:4rem 1rem;}
+    }
+    @media(max-width:400px){
+      .proc-hero{padding:100px 0.9rem 40px;}
+      .proc-hero-text h1{font-size:27px;}
+      .step-orbit{width:220px; height:220px;}
+      .orbit-ring-1{width:208px;height:208px;}
+      .orbit-ring-2{width:160px;height:160px;}
+      .step-node { --radius: 104px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="navLogo">
+        <img src="Assets/LOGO (2).webp" alt="Appollo Logo" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
+        <li><a href="products.html" class="nav-link">Products</a></li>
+        <li><a href="process.html"  class="nav-link active">Process</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta" id="navCta">Get in Touch</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════════════════════════
+       HERO — LIGHT PANORAMIC
+  ════════════════════════════════════ -->
+  <section class="proc-hero">
+    <div class="hero-grid-dots"></div>
+    <div class="hero-stripe"></div>
+    <div class="hero-blob hero-blob-a"></div>
+    <div class="hero-blob hero-blob-b"></div>
+    <div class="hero-blob hero-blob-c"></div>
+
+    <div class="proc-hero-content">
+
+      <!-- LEFT: text -->
+      <div class="proc-hero-text">
+        <div class="proc-eyebrow">
+          <span class="eyebrow-pulse"></span>
+          Brewed with Expertise · Est. 2019
+        </div>
+
+        <h1>The <span class="h1-underline">Art</span> of<br>
+          <span class="h1-italic">Brewing</span> Kombucha
+        </h1>
+
+        <p class="proc-hero-sub">We uphold the highest brewing standards at every step — from sourcing the finest natural ingredients to hygienically bottling every probiotic-rich drop. Here's how Appollo Kombucha comes to life.</p>
+
+        <!-- Stat chips -->
+        <div class="proc-stat-row">
+          <div class="proc-stat-chip"><span class="proc-stat-num">7</span><span class="proc-stat-lbl">Steps</span></div>
+          <div class="proc-stat-chip"><span class="proc-stat-num">2</span><span class="proc-stat-lbl">Variants</span></div>
+          <div class="proc-stat-chip"><span class="proc-stat-num">100%</span><span class="proc-stat-lbl">Natural</span></div>
+          <div class="proc-stat-chip"><span class="proc-stat-num">0%</span><span class="proc-stat-lbl">Artificial</span></div>
+        </div>
+
+        <!-- Buttons -->
+        <div class="proc-hero-btns">
+          <a href="#steps" class="btn-leaf">
+            See The Steps
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
+          <a href="products.html" class="btn-sage-outline">
+            Our Products
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT: animated step orbit -->
+      <div class="proc-hero-visual">
+        <div class="step-orbit">
+          <!-- Rings -->
+          <div class="orbit-ring orbit-ring-1"></div>
+          <div class="orbit-ring orbit-ring-2"></div>
+          <div class="orbit-ring orbit-ring-3"></div>
+          <!-- Glow -->
+          <div class="orbit-glow"></div>
+
+          <!-- 7 step nodes -->
+          <div class="step-node node-1" title="Sourcing Ingredients"><div class="step-node-inner">🌿<span class="step-node-num">01</span></div></div>
+          <div class="step-node node-2" title="Brewing the Tea"><div class="step-node-inner">🍵<span class="step-node-num">02</span></div></div>
+          <div class="step-node node-3" title="SCOBY Fermentation"><div class="step-node-inner">🧬<span class="step-node-num">03</span></div></div>
+          <div class="step-node node-4" title="Flavoring"><div class="step-node-inner">🍋<span class="step-node-num">04</span></div></div>
+          <div class="step-node node-5" title="Quality Checks"><div class="step-node-inner">🔬<span class="step-node-num">05</span></div></div>
+          <div class="step-node node-6" title="Bottling"><div class="step-node-inner">🍶<span class="step-node-num">06</span></div></div>
+          <div class="step-node node-7" title="Ready to Enjoy"><div class="step-node-inner">✅<span class="step-node-num">07</span></div></div>
+
+          <!-- Centre -->
+          <div class="orbit-center">
+            <div class="orbit-center-icon">🍯</div>
+            <div class="orbit-center-title">Live Brewed</div>
+            <div class="orbit-center-sub">Raw &amp; Ginger<br>Kombucha</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Scroll cue -->
+    <a href="#steps" class="proc-scroll-cue">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="steps-count-bar">
+    <div class="steps-count-inner">
+      <div class="steps-count-text">
+        <h3>7 Expert Steps to Every Bottle</h3>
+        <p>A meticulous process that never cuts corners — from field to fridge.</p>
+      </div>
+      <div class="steps-count-nums stagger">
+        <div class="count-item"><span class="count-num">7</span><span class="count-label">Brewing Steps</span></div>
+        <div class="count-divider"></div>
+        <div class="count-item"><span class="count-num">2</span><span class="count-label">Kombucha Variants</span></div>
+        <div class="count-divider"></div>
+        <div class="count-item"><span class="count-num">100%</span><span class="count-label">Natural Ingredients</span></div>
+        <div class="count-divider"></div>
+        <div class="count-item"><span class="count-num">0%</span><span class="count-label">Artificial Additives</span></div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- 7-STEP PROCESS -->
+  <section class="proc-steps-section" id="steps">
+    <div class="section-inner">
+      <div class="proc-steps-header reveal-up">
+        <span class="section-label">Step by Step</span>
+        <h2>How Every Bottle Is Made</h2>
+        <p>From raw ingredients to the bottle in your hand — every step is carried out with expertise, hygiene, and an uncompromising commitment to quality.</p>
+      </div>
+      <div class="proc-steps-list">
+        <div class="proc-step reveal-left">
+          <div class="proc-step-card" data-step="1"><span class="proc-step-icon">🌿</span><div class="proc-step-label">Step 01</div><h3>Sourcing the Best Ingredients</h3><p>It all starts with quality. We carefully source premium black and green tea leaves, natural cane sugar, and fresh dry ginger root — selecting only ingredients that meet our strict standards for purity and potency.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Premium black tea · Pure green tea · Natural sugar · Fresh dry ginger</div></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line top"></div><div class="proc-step-dot">1</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-empty"></div>
+        </div>
+        <div class="proc-step reveal-right">
+          <div class="proc-step-empty"></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">2</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-card" data-step="2"><span class="proc-step-icon">🍵</span><div class="proc-step-label">Step 02</div><h3>Brewing the Tea</h3><p>The selected tea is carefully steeped at precise temperatures to fully release its rich flavors, natural antioxidants, and beneficial compounds. This forms the nutrient-rich liquid base that will carry the fermentation.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Precise steeping temperature · Full flavor extraction · Antioxidant-rich base</div></div>
+        </div>
+        <div class="proc-step reveal-left">
+          <div class="proc-step-card" data-step="3"><span class="proc-step-icon">🧬</span><div class="proc-step-label">Step 03</div><h3>Fermentation with Live SCOBY</h3><p>The brewed tea is introduced to our living SCOBY — a Symbiotic Culture of Bacteria and Yeast — along with a starter liquid from a previous batch. This activates natural fermentation, transforming the tea into a probiotic-rich, lightly acidic kombucha over several days.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Live SCOBY · Natural fermentation · Probiotic development · Controlled environment</div></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">3</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-empty"></div>
+        </div>
+        <div class="proc-step reveal-right">
+          <div class="proc-step-empty"></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">4</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-card" data-step="4"><span class="proc-step-icon">🍋</span><div class="proc-step-label">Step 04</div><h3>Flavoring — The Ginger Touch</h3><p>For our Ginger Kombucha, real dry ginger root is infused at this stage, giving it the signature bold warmth and anti-inflammatory punch our customers love. Our Raw Kombucha is left in its pure, clean form — letting the green tea and natural fermentation flavors shine through.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Real dry ginger infusion (Ginger) · Pure fermentation flavors (Raw)</div></div>
+        </div>
+        <div class="proc-step reveal-left">
+          <div class="proc-step-card" data-step="5"><span class="proc-step-icon">🔬</span><div class="proc-step-label">Step 05</div><h3>Quality Checks</h3><p>Every single batch is rigorously tested before it goes anywhere near a bottle. We check for pH balance, probiotic activity, taste consistency, and overall safety — ensuring every bottle of Appollo kombucha lives up to our promise of quality.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>pH testing · Probiotic verification · Taste assessment · Safety checks</div></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">5</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-empty"></div>
+        </div>
+        <div class="proc-step reveal-right">
+          <div class="proc-step-empty"></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">6</div><div class="proc-step-spine-line"></div></div>
+          <div class="proc-step-card" data-step="6"><span class="proc-step-icon">🍶</span><div class="proc-step-label">Step 06</div><h3>Bottling &amp; Packaging</h3><p>The kombucha is hygienically filled into 330ml recyclable plastic bottles in a clean, controlled environment. Each bottle is sealed to lock in the natural carbonation and living probiotic cultures, preserving freshness all the way to your hands.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Hygienic fill · 330ml recyclable bottles · Airtight seal · Natural carbonation preserved</div></div>
+        </div>
+        <div class="proc-step reveal-left">
+          <div class="proc-step-card" data-step="7"><span class="proc-step-icon">✅</span><div class="proc-step-label">Step 07</div><h3>Ready to Enjoy</h3><p>From our facility to your fridge — Appollo Kombucha is ready to delight. Refreshing, naturally carbonated, alive with probiotics, and authentically Zambian. Keep it chilled and enjoy one bottle a day for the best health benefits.</p><div class="proc-step-detail"><div class="proc-step-detail-dot"></div>Refrigerate &amp; enjoy · One bottle daily · Raw Kombucha or Ginger Kombucha</div></div>
+          <div class="proc-step-spine"><div class="proc-step-spine-line"></div><div class="proc-step-dot">7</div><div class="proc-step-spine-line bottom"></div></div>
+          <div class="proc-step-empty"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUALITY
+  <section class="quality-section">
+    <div class="section-inner">
+      <div class="section-header reveal-up">
+        <span class="section-label">Our Standards</span>
+        <h2>Quality in Every Drop</h2>
+        <p>We uphold the highest brewing standards so that every sip of Appollo Kombucha is safe, refreshing, and full of natural goodness.</p>
+      </div>
+      <div class="quality-grid stagger">
+        <div class="quality-card"><span class="quality-icon">🌿</span><h3>100% Natural Inputs</h3><p>Every ingredient — tea, sugar, ginger, SCOBY — is natural. We never use artificial flavors, colors, or preservatives at any stage.</p></div>
+        <div class="quality-card"><span class="quality-icon">🧪</span><h3>Batch Testing</h3><p>Each batch is individually tested for pH, taste, probiotic activity, and safety before a single bottle is filled.</p></div>
+        <div class="quality-card"><span class="quality-icon">🏭</span><h3>Hygienic Facility</h3><p>Our Zambia-based brewery maintains strict hygiene standards throughout the brewing and bottling process.</p></div>
+        <div class="quality-card"><span class="quality-icon">🦠</span><h3>Live Probiotic Guarantee</h3><p>We verify live probiotic cultures are present and active in every batch — not just during production, but through to the shelf.</p></div>
+        <div class="quality-card"><span class="quality-icon">♻️</span><h3>Sustainable Packaging</h3><p>Our 330ml bottles are fully recyclable. We're committed to minimizing our environmental impact as we grow.</p></div>
+        <div class="quality-card"><span class="quality-icon">🇿🇲</span><h3>Proudly Made in Zambia</h3><p>Brewed, tested, and bottled right here in Zambia — supporting local and delivering authenticity in every sip.</p></div>
+      </div>
+    </div>
+  </section>-->
+
+
+  <!-- CTA -->
+  <section class="proc-cta reveal-up">
+    <div class="section-inner">
+      <span class="section-label">Taste the Craft</span>
+      <h2>Ready to Experience<br>Appollo Kombucha?</h2>
+      <p>Now that you know how it's made — discover the two varieties born from this expert process. Raw Kombucha or Ginger Kombucha, both naturally brewed and waiting for you.</p>
+      <div class="proc-cta-btns">
+        <a href="products.html" class="btn-gold">Explore Products</a>
+        <a href="contact.html" class="btn-outline-white">Get in Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-row">
+            <img src="Assets/LOGO (2).webp" alt="Appollo Logo" class="footer-logo-img">
+            <div><div class="footer-brand">APPOLLO PRODUCTS LTD</div><div class="footer-tagline">Naturally carbonated herbal kombucha,<br>brewed with pride in Zambia since 2019.</div></div>
+          </div>
+        </div>
+        <div class="footer-col"><h4>Quick Links</h4><ul><li><a href="index.html">Home</a></li><li><a href="about.html">About</a></li><li><a href="products.html">Products</a></li><li><a href="process.html">Process</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h4>Products</h4><ul><li><a href="products.html">Raw Kombucha</a></li><li><a href="products.html">Ginger Kombucha</a></li></ul>        </div>
+        <div class="footer-col">
+          <h4>Contact us</h4>
+        <ul>
+            <li>Lusaka, Zambia</li>
+            <li><a href="tel:+260978309795">Phone: +260978309795</a></li>
+            <li><a href="tel:+260973808508">Phone: +260973808508</a></li>
+            <li><a href="mailto:aplzambia@gmail.com"> Email:aplzambia@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Appollo Products Ltd. All rights reserved.</p>
+        <p>Designed By <a href="https://metromindz.com/" target="_blank" rel="noopener noreferrer"><span>Metromindz</span></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1.1"></script>
+</body>
+</html>

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products | Appollo Products</title>
+  <meta name="description" content="Explore Appollo Products Ltd's two signature kombucha varieties — Raw Kombucha and Ginger Kombucha. Naturally brewed, probiotic-rich, 100% natural. Zambia's finest since 2019.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/ico" href="Assets/favicon.ico">
+  <style>
+
+    /* ═══════════════════════════════
+       HERO — SPLIT SCREEN
+    ═══════════════════════════════ */
+    .prod-hero {
+      position: relative;
+      min-height: 80vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      overflow: hidden;
+      padding-top: 72px; /* navbar height */
+    }
+
+    .hero-panel {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem 2rem 5rem;
+      overflow: hidden;
+      cursor: pointer;
+      transition: flex 0.6s cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    .hero-panel.left  { background: #eef7ee; }
+    .hero-panel.right { background: #fff8ed; }
+
+    @media (min-width: 900px) {
+      .hero-panel { flex: 1; }
+      .hero-panel:hover { flex: 1.14; }
+    }
+
+    .panel-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(72px);
+      pointer-events: none;
+      animation: blob-sway 9s ease-in-out infinite;
+    }
+    .left  .panel-blob-1 { width: 400px; height: 400px; background: rgba(100,190,90,0.18);  top: -120px; left: -120px; }
+    .left  .panel-blob-2 { width: 280px; height: 280px; background: rgba(174,235,5,0.13);   bottom: -60px; right: -70px; animation-delay: -4.5s; }
+    .right .panel-blob-1 { width: 380px; height: 380px; background: rgba(255,180,50,0.18);  top: -100px; right: -100px; }
+    .right .panel-blob-2 { width: 260px; height: 260px; background: rgba(255,210,80,0.15);  bottom: -60px; left: -60px; animation-delay: -3s; }
+
+    @keyframes blob-sway {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(20px,-18px) scale(1.04); }
+      66%      { transform: translate(-14px,16px) scale(0.97); }
+    }
+
+    .panel-texture {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image: radial-gradient(circle, rgba(30,107,46,0.06) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+    .right .panel-texture {
+      background-image: radial-gradient(circle, rgba(180,100,0,0.06) 1px, transparent 1px);
+    }
+
+    .panel-content {
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .panel-series-tag {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 30px;
+      margin-bottom: 1.2rem;
+      display: inline-block;
+    }
+    .left  .panel-series-tag { background: rgba(46,125,50,0.1); color: #2e7d32; border: 1px solid rgba(46,125,50,0.22); }
+    .right .panel-series-tag { background: rgba(180,100,0,0.1); color: #b46400; border: 1px solid rgba(180,100,0,0.22); }
+
+    .panel-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 900;
+      font-size: clamp(36px, 4.5vw, 62px);
+      line-height: 1.0;
+      letter-spacing: -0.025em;
+      margin-bottom: 0.3rem;
+    }
+    .left  .panel-title { color: #0b3009; }
+    .right .panel-title { color: #3d1f00; }
+
+    .panel-subtitle {
+      font-family: 'Poppins', sans-serif;
+      font-style: italic;
+      font-size: clamp(13px, 1.4vw, 17px);
+      margin-bottom: 1.4rem;
+      line-height: 1.45;
+    }
+    .left  .panel-subtitle { color: #4a8c4a; }
+    .right .panel-subtitle { color: #a06400; }
+
+    .panel-bottle { position: relative; margin-bottom: 1.4rem; }
+    .panel-bottle img {
+      object-fit: contain;
+      filter: drop-shadow(0 20px 44px rgba(0,0,0,0.13));
+      transition: transform 0.5s cubic-bezier(0.34,1.56,0.64,1);
+      animation: bottle-rise 5.5s ease-in-out infinite;
+    }
+    .left  .panel-bottle img { width: 220px; height: 360px; animation-delay: 0s; }
+    .right .panel-bottle img { width: 220px; height: 360px; animation-delay: -2.5s; }
+    .hero-panel:hover .panel-bottle img { transform: scale(1.07) translateY(-10px); }
+
+    @keyframes bottle-rise {
+      0%,100% { transform: translateY(0) rotate(-0.7deg); }
+      50%      { transform: translateY(-12px) rotate(0.7deg); }
+    }
+
+    .bottle-halo {
+      position: absolute;
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      filter: blur(36px);
+      pointer-events: none;
+      animation: halo-breathe 4s ease-in-out infinite;
+    }
+    .left  .bottle-halo { background: rgba(100,190,80,0.22); }
+    .right .bottle-halo { background: rgba(255,175,50,0.24); animation-delay: -2s; }
+
+    @keyframes halo-breathe {
+      0%,100% { opacity: 0.6; transform: translate(-50%,-50%) scale(1); }
+      50%      { opacity: 1;   transform: translate(-50%,-50%) scale(1.18); }
+    }
+
+    .panel-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      justify-content: center;
+      margin-bottom: 1.6rem;
+    }
+    .panel-trait {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.3px;
+    }
+    .left  .panel-trait { background: rgba(46,125,50,0.09); color: #2e7d32; border: 1px solid rgba(46,125,50,0.18); }
+    .right .panel-trait { background: rgba(180,100,0,0.09); color: #a06000; border: 1px solid rgba(180,100,0,0.18); }
+
+    .panel-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 13px;
+      font-weight: 700;
+      padding: 12px 28px;
+      border-radius: 40px;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: all 0.3s ease;
+    }
+    .left  .panel-cta { background: #2e7d32; color: #fff; box-shadow: 0 4px 18px rgba(46,125,50,0.25); }
+    .left  .panel-cta:hover { background: #1b5e20; transform: translateY(-3px); box-shadow: 0 10px 28px rgba(46,125,50,0.3); }
+    .right .panel-cta { background: #e07b00; color: #fff; box-shadow: 0 4px 18px rgba(200,100,0,0.22); }
+    .right .panel-cta:hover { background: #c26900; transform: translateY(-3px); box-shadow: 0 10px 28px rgba(180,100,0,0.3); }
+
+    .hero-bottom-strip {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: rgba(255,255,255,0.65);
+      backdrop-filter: blur(6px);
+      border-top: 1px solid rgba(30,107,46,0.1);
+    }
+    .hero-strip-track {
+      display: flex;
+      gap: 3rem;
+      white-space: nowrap;
+      padding: 0 2rem;
+      animation: marquee-scroll 24s linear infinite;
+    }
+    .hero-strip-track span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(30,107,46,0.35);
+    }
+    .hero-strip-track .accent-green { color: rgba(46,125,50,0.5); }
+    .hero-strip-track .accent-amber { color: rgba(180,100,0,0.45); }
+
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .hero-scroll-cue {
+      position: absolute;
+      bottom: 52px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 15;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.35rem;
+      animation: bounce-dn 2.2s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .hero-scroll-cue span {
+      font-family: 'Poppins', sans-serif;
+      font-size: 9px;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: rgba(30,107,46,0.4);
+      font-weight: 600;
+    }
+    .hero-scroll-cue svg { color: rgba(30,107,46,0.35); }
+
+    @keyframes bounce-dn {
+      0%,100% { transform: translateX(-50%) translateY(0); }
+      50%      { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ═══════════════════════════════
+       TAB BAR
+    ═══════════════════════════════ */
+    .tab-switcher-bar {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 72px;
+      z-index: 100;
+      box-shadow: var(--shadow-sm);
+    }
+    .tab-switcher-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      gap: 0;
+    }
+    .tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 1.1rem 2rem;
+      background: none;
+      border: none;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      position: relative;
+      transition: color 0.25s;
+      letter-spacing: 0.3px;
+    }
+    .tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--green-mid);
+      border-radius: 3px 3px 0 0;
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .tab-btn.active { color: var(--green-dark); }
+    .tab-btn.active::after { transform: scaleX(1); }
+    .tab-btn:hover { color: var(--green); }
+    .tab-dot { width: 9px; height: 9px; border-radius: 50%; flex-shrink: 0; }
+    .tab-dot.green { background: #aeeb05; }
+    .tab-dot.gold  { background: var(--gold-warm); }
+
+    /* ═══════════════════════════════
+       PRODUCT SECTIONS
+    ═══════════════════════════════ */
+    .product-section {
+      padding: 5rem 2rem;
+    }
+    .raw-section    { background: var(--mint, #f4fbf5); }
+    .ginger-section { background: var(--gold-pale, #fff8e1); }
+
+    .product-section .section-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ── Two-column layout ── */
+    .product-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    /* RTL trick for reverse layout */
+    .product-feature.reverse { direction: rtl; }
+    .product-feature.reverse > * { direction: ltr; }
+
+    /* ═══════════════════════════════
+       BOTTLE SHOWCASE
+    ═══════════════════════════════ */
+    .bottle-showcase {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-lg, 20px);
+      overflow: hidden;
+      min-height: 500px;
+      height: 100%;
+    }
+
+    .bottle-showcase-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg, 20px);
+      z-index: 0;
+    }
+    .raw-bg    { background: radial-gradient(ellipse at center, #e8f5ec 0%, #c8e6cf 50%, #a5d6a7 100%); }
+    .ginger-bg { background: radial-gradient(ellipse at center, #fff8e0 0%, #ffe0b2 50%, #ffcc80 100%); }
+
+    .bottle-showcase-wrap {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 3.5rem 2rem;
+    }
+
+    .bottle-main-img {
+      width: 200px;
+      height: 420px;
+      object-fit: contain;
+      filter: drop-shadow(0 30px 70px rgba(0,0,0,0.22));
+      transition: transform 0.4s ease;
+      animation: float 6s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    .bottle-showcase:hover .bottle-main-img {
+      transform: scale(1.05) translateY(-8px);
+    }
+    @keyframes float {
+      0%,100% { transform: translateY(0); }
+      50%      { transform: translateY(-10px); }
+    }
+
+    .bottle-badge-row {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .bottle-badge {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: var(--radius-full, 999px);
+      letter-spacing: 0.5px;
+    }
+    .raw    .bottle-badge { background: rgba(30,107,46,0.12); color: var(--green-dark); border: 1px solid rgba(30,107,46,0.2); }
+    .ginger .bottle-badge { background: rgba(184,120,0,0.12); color: var(--gold); border: 1px solid rgba(184,120,0,0.2); }
+
+    .bottle-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed;
+      opacity: 0.25;
+      animation: spin-slow 20s linear infinite;
+    }
+    .bottle-ring-2 { animation: spin-slow 30s linear infinite reverse; }
+    .raw    .bottle-ring { border-color: var(--green-mid); }
+    .ginger .bottle-ring { border-color: var(--gold); }
+
+    @keyframes spin-slow {
+      from { transform: translate(-50%,-50%) rotate(0deg); }
+      to   { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+
+    /* ═══════════════════════════════
+       PRODUCT INFO COLUMN
+    ═══════════════════════════════ */
+    .product-info-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .product-info-col .flavor-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      padding: 7px 18px;
+      border-radius: var(--radius-full, 999px);
+      margin-bottom: 1rem;
+      width: fit-content;
+    }
+    .raw-tag    { background: var(--green-light); color: var(--green-dark); border: 1px solid rgba(30,107,46,0.2); }
+    .ginger-tag { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(184,120,0,0.2); }
+
+    .product-info-col h2 {
+      font-family: 'Poppins', sans-serif;
+      font-size: clamp(38px, 4.5vw, 58px);
+      font-weight: 900;
+      color: var(--text-heading);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .product-tagline {
+      font-size: 16px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.2rem;
+      line-height: 1.55;
+    }
+
+    .product-desc {
+      font-size: 16px;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 1.6rem;
+    }
+
+    /* ── Benefits ── */
+    .benefits-strip {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .benefit-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-family: 'Poppins', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: var(--radius-full, 999px);
+      letter-spacing: 0.3px;
+    }
+    .raw-section    .benefit-pill { background: var(--green-light); color: var(--green-dark); border: 1px solid rgba(30,107,46,0.15); }
+    .ginger-section .benefit-pill { background: var(--gold-pale); color: var(--gold); border: 1px solid rgba(184,120,0,0.15); }
+
+    /* ═══════════════════════════════
+       INFO CARDS — ALWAYS 2-col,
+       never stacks on any screen size
+    ═══════════════════════════════ */
+    .info-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .info-card {
+      border-radius: var(--radius-md, 12px);
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .info-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .raw-section    .info-card { background: #f4fbf5; }
+    .ginger-section .info-card { background: #fff8e1; }
+
+    .info-card-icon { font-size: 20px; margin-bottom: 0.4rem; display: block; }
+    .info-card-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .raw-section    .info-card-title { color: var(--green-dark); }
+    .ginger-section .info-card-title { color: var(--gold); }
+    .info-card p { font-size: 13.5px; color: var(--text-body); line-height: 1.55; margin: 0; }
+    .info-card ul { list-style: none; padding: 0; margin: 0; }
+    .info-card ul li {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.4rem;
+      margin-bottom: 0.3rem;
+      font-size: 13.5px;
+      color: var(--text-body);
+      line-height: 1.45;
+    }
+    .info-card ul li::before {
+      content: '·';
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .raw-section    .info-card ul li::before { color: var(--green-mid); }
+    .ginger-section .info-card ul li::before { color: var(--gold); }
+
+    /* Section divider */
+    .section-divider {
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), transparent);
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ═══════════════════════════════
+       CTA SECTION
+    ═══════════════════════════════ */
+    .prod-cta {
+      padding: 6rem 2rem;
+      background: var(--green-dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .prod-cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(30,107,46,0.4) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .prod-cta .section-inner { position: relative; z-index: 2; max-width: 640px; margin: 0 auto; }
+    .prod-cta .section-label {
+      font-family: 'Poppins', sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: rgba(174,235,5,0.7);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.8rem;
+    }
+    .prod-cta h2 { font-size: clamp(26px,3vw,38px); font-weight: 800; color: #aeeb05; margin-bottom: 1rem; }
+    .prod-cta p  { color: rgba(255,255,255,0.65); font-size: 17px; margin-bottom: 2.5rem; line-height: 1.6; }
+    .cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    .btn-gold {
+      display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem;
+      background: var(--gold-warm); color: var(--green-deep);
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 700;
+      padding: 14px 32px; border-radius: var(--radius-full, 999px); border: none;
+      letter-spacing: 0.3px; transition: all 0.3s ease; text-decoration: none;
+    }
+    .btn-gold:hover { background: #ffe88a; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.25); }
+
+    .btn-outline-white {
+      display: inline-flex; align-items: center; justify-content: center;
+      background: transparent; color: rgba(255,255,255,0.85);
+      font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600;
+      padding: 14px 32px; border-radius: var(--radius-full, 999px);
+      border: 1.5px solid rgba(255,255,255,0.3); letter-spacing: 0.3px;
+      transition: all 0.3s ease; text-decoration: none;
+    }
+    .btn-outline-white:hover {
+      background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.6);
+      color: white; transform: translateY(-2px);
+    }
+
+    /* ═══════════════════════════════
+       RESPONSIVE BREAKPOINTS
+    ═══════════════════════════════ */
+
+    /* ── 1100px ── */
+    @media (max-width: 1100px) {
+      .product-feature { gap: 2.5rem; }
+      .bottle-main-img { width: 170px; height: 360px; }
+      .bottle-showcase { min-height: 460px; }
+      .product-info-col h2 { font-size: clamp(34px, 4vw, 50px); }
+    }
+
+    /* ── 900px: stack hero + product sections ── */
+    @media (max-width: 900px) {
+      .prod-hero {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto;
+        min-height: auto;
+        padding-top: 72px;
+      }
+      /* Reduced padding so gap between hero CTA and product section is tighter */
+      .hero-panel { padding: 2.5rem 2rem 2rem; }
+      .hero-scroll-cue { display: none; }
+      .left  .panel-bottle img,
+      .right .panel-bottle img { width: 180px; height: 300px; }
+
+      .product-feature,
+      .product-feature.reverse {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        direction: ltr;
+      }
+      .product-feature.reverse > * { direction: ltr; }
+
+      .bottle-showcase {
+        order: 1;
+        min-height: 360px;
+        width: 100%;
+        border-radius: 16px;
+      }
+      .product-info-col {
+        order: 2;
+        justify-content: flex-start;
+      }
+
+      .bottle-main-img { width: 180px; height: 360px; }
+      .bottle-showcase-wrap { padding: 2rem; }
+
+      /* Always 2 columns */
+      .info-cards { grid-template-columns: 1fr 1fr; }
+
+      .product-section { padding: 2.5rem 1.5rem; }
+      .product-info-col h2 { font-size: clamp(36px, 6vw, 52px); }
+    }
+
+    /* ── 768px ── */
+    @media (max-width: 768px) {
+      .prod-hero { padding-top: 64px; }
+      /* Tighter hero panel padding = less gap before product section */
+      .hero-panel { padding: 2rem 1.5rem 1.75rem; }
+
+      .tab-switcher-bar {
+        top: 64px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .tab-switcher-bar::-webkit-scrollbar { display: none; }
+      .tab-switcher-inner { padding: 0 1rem; width: max-content; min-width: 100%; }
+      .tab-btn { padding: 0.9rem 1.2rem; font-size: 13px; white-space: nowrap; }
+
+      .product-section { padding: 2rem 1.25rem; }
+
+      .bottle-showcase { min-height: 320px; border-radius: 14px; }
+      .bottle-main-img { width: 155px; height: 320px; }
+      .bottle-showcase-wrap { padding: 1.75rem 1.25rem; }
+
+      /* info-cards: ALWAYS 2 columns — never stack on mobile */
+      .info-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.65rem;
+      }
+      .info-card { padding: 1rem; }
+      .info-card p,
+      .info-card ul li { font-size: 12.5px; }
+
+      .product-desc { font-size: 14.5px; }
+      .product-tagline { font-size: 14.5px; margin-bottom: 0.8rem; }
+      .product-info-col h2 { margin-bottom: 0.35rem; }
+      .benefits-strip { margin-bottom: 1.1rem; }
+
+      .cta-btns { flex-direction: column; align-items: center; }
+      .btn-gold, .btn-outline-white { width: 100%; max-width: 300px; }
+
+      .product-info-col { text-align: left; align-items: flex-start; }
+      .benefits-strip { justify-content: flex-start; }
+      .bottle-badge-row { justify-content: center; }
+    }
+
+    /* ── 576px: narrow phones ── */
+    @media (max-width: 576px) {
+      .hero-panel { padding: 1.75rem 1.25rem 1.5rem; }
+      .panel-title { font-size: clamp(30px, 8vw, 44px); }
+      .left  .panel-bottle img,
+      .right .panel-bottle img { width: 115px; height: 210px; }
+      .panel-trait { font-size: 9.5px; padding: 4px 10px; }
+      .panel-subtitle { margin-bottom: 0.75rem; }
+      .panel-traits { margin-bottom: 0.9rem; }
+
+      .product-section { padding: 1.75rem 1rem; }
+      .product-info-col h2 { font-size: clamp(30px, 8vw, 42px); }
+
+      .bottle-showcase { min-height: 280px; }
+      .bottle-main-img { width: 130px; height: 275px; }
+      .bottle-showcase-wrap { padding: 1.5rem 1rem; }
+      .bottle-ring { display: none; }
+
+      /* info-cards: side-by-side on small phones — compact but readable */
+      .info-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+      }
+      .info-card { padding: 0.85rem 0.75rem; }
+      .info-card-icon { font-size: 16px; margin-bottom: 0.25rem; }
+      .info-card-title { font-size: 9px; letter-spacing: 0.5px; }
+      .info-card p,
+      .info-card ul li { font-size: 11.5px; line-height: 1.45; }
+      .info-card ul li { margin-bottom: 0.2rem; }
+
+      .product-tagline { font-size: 13.5px; margin-bottom: 0.7rem; }
+      .product-desc { font-size: 13.5px; margin-bottom: 1.1rem; }
+      .benefit-pill { font-size: 11px; padding: 5px 11px; }
+      .benefits-strip { gap: 0.35rem; margin-bottom: 0.9rem; }
+      .flavor-tag { font-size: 10px; padding: 6px 14px; margin-bottom: 0.7rem; }
+      .product-feature { gap: 1.25rem; }
+    }
+
+    /* ── 400px: very small phones ── */
+    @media (max-width: 400px) {
+      .panel-title { font-size: clamp(24px, 7.5vw, 32px); }
+      .hero-bottom-strip { display: none; }
+      .hero-panel { padding: 1.5rem 1rem 1.25rem; }
+      .left  .panel-bottle img,
+      .right .panel-bottle img { width: 95px; height: 180px; }
+
+      .bottle-showcase { min-height: 255px; }
+      .bottle-main-img { width: 115px; height: 248px; }
+
+      .product-info-col h2 { font-size: clamp(26px, 7vw, 34px); }
+
+      /* Compact 2-col cards on tiny screens */
+      .info-cards {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4rem;
+      }
+      .info-card { padding: 0.7rem 0.6rem; }
+      .info-card p,
+      .info-card ul li { font-size: 11px; }
+      .info-card-title { font-size: 8.5px; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo" id="navLogo">
+        <img src="Assets/LOGO (2).webp" alt="Appollo Logo" class="nav-logo-img">
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"    class="nav-link">Home</a></li>
+        <li><a href="about.html"    class="nav-link">About</a></li>
+        <li><a href="products.html" class="nav-link active">Products</a></li>
+        <li><a href="process.html"  class="nav-link">Process</a></li>
+        <li><a href="contact.html"  class="nav-link">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="nav-cta" id="navCta">Get in Touch</a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <section class="prod-hero" id="hero">
+
+    <!-- LEFT: Raw -->
+    <div class="hero-panel left" onclick="scrollToProduct('raw', document.querySelector('.tab-btn'))">
+      <div class="panel-texture"></div>
+      <div class="panel-blob panel-blob-1"></div>
+      <div class="panel-blob panel-blob-2"></div>
+      <div class="panel-content">
+        <span class="panel-series-tag">🌿 Signature Series</span>
+        <h1 class="panel-title">Raw<br>Kombucha</h1>
+        <p class="panel-subtitle">"Clean, crisp &amp; alive"</p>
+        <div class="panel-bottle">
+          <div class="bottle-halo"></div>
+          <img src="Assets/Raww.webp" alt="Appollo Raw Kombucha">
+        </div>
+        <div class="panel-traits">
+          <span class="panel-trait">Green Tea Base</span>
+          <span class="panel-trait">Live Probiotics</span>
+          <span class="panel-trait">Naturally Fizzy</span>
+          <span class="panel-trait">Gut-Friendly</span>
+          <span class="panel-trait">Antioxidant-Rich</span>
+        </div>
+        <a href="#raw" class="panel-cta" onclick="event.stopPropagation()">
+          Explore Raw
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- RIGHT: Ginger -->
+    <div class="hero-panel right" onclick="scrollToProduct('ginger', document.querySelectorAll('.tab-btn')[1])">
+      <div class="panel-texture"></div>
+      <div class="panel-blob panel-blob-1"></div>
+      <div class="panel-blob panel-blob-2"></div>
+      <div class="panel-content">
+        <span class="panel-series-tag">🫚 Best Seller</span>
+        <h1 class="panel-title">Ginger<br>Kombucha</h1>
+        <p class="panel-subtitle">"Bold, warming &amp; alive"</p>
+        <div class="panel-bottle">
+          <div class="bottle-halo"></div>
+          <img src="Assets/Gingerr.webp" alt="Appollo Ginger Kombucha">
+        </div>
+        <div class="panel-traits">
+          <span class="panel-trait">Real Ginger Root</span>
+          <span class="panel-trait">Anti-Inflammatory</span>
+          <span class="panel-trait">Live Probiotics</span>
+          <span class="panel-trait">Bold Flavour</span>
+          <span class="panel-trait">Digestion Boost</span>
+        </div>
+        <a href="#ginger" class="panel-cta" onclick="event.stopPropagation()">
+          Explore Ginger
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- Marquee -->
+    <div class="hero-bottom-strip">
+      <div class="hero-strip-track">
+        <span>Naturally Brewed</span><span class="accent-green">●</span>
+        <span>Live SCOBY Culture</span><span class="accent-amber">●</span>
+        <span>100% Natural</span><span class="accent-green">●</span>
+        <span>Zambia's Finest Since 2019</span><span class="accent-amber">●</span>
+        <span>Zero Artificial Additives</span><span class="accent-green">●</span>
+        <span>Naturally Carbonated</span><span class="accent-amber">●</span>
+        <span>Naturally Brewed</span><span class="accent-green">●</span>
+        <span>Live SCOBY Culture</span><span class="accent-amber">●</span>
+        <span>100% Natural</span><span class="accent-green">●</span>
+        <span>Zambia's Finest Since 2019</span><span class="accent-amber">●</span>
+        <span>Zero Artificial Additives</span><span class="accent-green">●</span>
+        <span>Naturally Carbonated</span><span class="accent-amber">●</span>
+      </div>
+    </div>
+
+    <div class="hero-scroll-cue">
+      <span>Scroll</span>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </div>
+  </section>
+
+  <!-- TAB SWITCHER -->
+  <div class="tab-switcher-bar">
+    <div class="tab-switcher-inner">
+      <button class="tab-btn active" onclick="scrollToProduct('raw', this)"><span class="tab-dot green"></span> Raw Kombucha</button>
+      <button class="tab-btn" onclick="scrollToProduct('ginger', this)"><span class="tab-dot gold"></span> Ginger Kombucha</button>
+    </div>
+  </div>
+
+  <!-- ══ RAW KOMBUCHA ══ -->
+  <section class="product-section raw-section" id="raw">
+    <div class="section-inner">
+      <div class="product-feature">
+
+        <!-- BOTTLE -->
+        <div class="bottle-showcase raw reveal-left">
+          <div class="bottle-showcase-bg raw-bg"></div>
+          <div class="bottle-ring" style="width:320px;height:320px;left:50%;top:50%;position:absolute;"></div>
+          <div class="bottle-ring bottle-ring-2" style="width:440px;height:440px;left:50%;top:50%;position:absolute;"></div>
+          <div class="bottle-showcase-wrap">
+            <img src="Assets/Raww.webp" alt="Appollo Raw Kombucha" class="bottle-main-img">
+            <div class="bottle-badge-row">
+              <span class="bottle-badge">330ml</span>
+              <span class="bottle-badge">Recyclable</span>
+              <span class="bottle-badge">Signature Blend</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-info-col reveal-right">
+          <span class="flavor-tag raw-tag">🌿 Raw Series</span>
+          <h2>Raw<br>Kombucha</h2>
+          <p class="product-tagline">"Clean, crisp, and alive — the pure expression of fermentation."</p>
+          <p class="product-desc">Our Raw Kombucha is the authentic heart of the Appollo range. Brewed from premium pure green tea and a thriving live SCOBY culture, this lightly tangy, naturally fizzy drink is your gateway to the world of kombucha wellness.</p>
+          <div class="benefits-strip">
+            <span class="benefit-pill">🦠 Supports Gut Health</span>
+            <span class="benefit-pill">⚡ Boosts Energy</span>
+            <span class="benefit-pill">🛡️ Rich in Antioxidants</span>
+            <span class="benefit-pill">🔥 Boosts Metabolism</span>
+            <span class="benefit-pill">💪 Immunity Support</span>
+          </div>
+          <div class="info-cards">
+            <div class="info-card">
+              <span class="info-card-icon">🍃</span>
+              <div class="info-card-title">Ingredients</div>
+              <ul>
+                <li>Pure green tea</li>
+                <li>Natural cane sugar</li>
+                <li>Live SCOBY culture</li>
+                <li>Filtered water</li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">📦</span>
+              <div class="info-card-title">Packaging</div>
+              <p>330ml recyclable plastic bottle — designed to preserve natural carbonation and probiotic activity.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ══ GINGER KOMBUCHA ══ -->
+  <section class="product-section ginger-section" id="ginger">
+    <div class="section-inner">
+      <div class="product-feature reverse">
+
+        <!-- BOTTLE -->
+        <div class="bottle-showcase ginger reveal-right">
+          <div class="bottle-showcase-bg ginger-bg"></div>
+          <div class="bottle-ring" style="width:320px;height:320px;left:50%;top:50%;position:absolute;"></div>
+          <div class="bottle-ring bottle-ring-2" style="width:440px;height:440px;left:50%;top:50%;position:absolute;"></div>
+          <div class="bottle-showcase-wrap">
+            <img src="Assets/Gingerr.webp" alt="Appollo Ginger Kombucha" class="bottle-main-img">
+            <div class="bottle-badge-row">
+              <span class="bottle-badge">330ml</span>
+              <span class="bottle-badge">Recyclable</span>
+              <span class="bottle-badge">Best Seller</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- INFO -->
+        <div class="product-info-col reveal-left">
+          <span class="flavor-tag ginger-tag">🫚 Ginger Series</span>
+          <h2>Ginger<br>Kombucha</h2>
+          <p class="product-tagline">"Bold, warming, and invigorating — a kick of wellness in every sip."</p>
+          <p class="product-desc">For those who want a little more fire in their wellness routine, our Ginger Kombucha delivers. Real dry ginger root is infused into our fermented black tea base, creating a drink that's bold, warming, and deeply satisfying.</p>
+          <div class="benefits-strip">
+            <span class="benefit-pill">🥗 Aids Digestion</span>
+            <span class="benefit-pill">🔥 Anti-Inflammatory</span>
+            <span class="benefit-pill">🦠 Supports Gut Health</span>
+            <span class="benefit-pill">💪 Immunity Booster</span>
+            <span class="benefit-pill">⚡ Boosts Metabolism</span>
+          </div>
+          <div class="info-cards">
+            <div class="info-card">
+              <span class="info-card-icon">🌿</span>
+              <div class="info-card-title">Ingredients</div>
+              <ul>
+                <li>Black tea</li>
+                <li>Natural cane sugar</li>
+                <li>Live SCOBY culture</li>
+                <li>Real dry ginger root</li>
+              </ul>
+            </div>
+            <div class="info-card">
+              <span class="info-card-icon">📦</span>
+              <div class="info-card-title">Packaging</div>
+              <p>330ml recyclable plastic bottle — sealed to lock in freshness.</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand-col">
+          <div class="footer-brand-row">
+            <img src="Assets/LOGO (2).webp" alt="Appollo Logo" class="footer-logo-img">
+            <div>
+              <div class="footer-brand">APPOLLO PRODUCTS LTD</div>
+              <div class="footer-tagline">Naturally carbonated herbal kombucha,<br>brewed with pride in Zambia since 2019.</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="products.html">Products</a></li>
+            <li><a href="process.html">Process</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Products</h4>
+          <ul>
+            <li><a href="products.html">Raw Kombucha</a></li>
+            <li><a href="products.html">Ginger Kombucha</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact us</h4>
+          <ul>
+            <li>Lusaka, Zambia</li>
+            <li><a href="tel:+260978309795">Phone: +260978309795</a></li>
+            <li><a href="tel:+260973808508">Phone: +260973808508</a></li>
+            <li><a href="mailto:aplzambia@gmail.com">Email: aplzambia@gmail.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Appollo Products Ltd. All rights reserved.</p>
+        <p>Designed By <a href="https://metromindz.com/" target="_blank" rel="noopener noreferrer"><span>Metromindz</span></a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js?v=1.1"></script>
+  <script>
+    function scrollToProduct(id, btn) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      if (btn) btn.classList.add('active');
+      const target = document.getElementById(id);
+      if (!target) return;
+      const navH = document.querySelector('nav').offsetHeight;
+      const tabH = document.querySelector('.tab-switcher-bar').offsetHeight;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - navH - tabH - 8, behavior: 'smooth' });
+    }
+
+    const tabTargets = ['raw', 'ginger'];
+    const tabBtns = document.querySelectorAll('.tab-btn');
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = tabTargets.indexOf(e.target.id);
+          if (idx !== -1) tabBtns.forEach((b, i) => b.classList.toggle('active', i === idx));
+        }
+      });
+    }, { threshold: 0.35, rootMargin: '-80px 0px -40% 0px' });
+    tabTargets.forEach(id => { const el = document.getElementById(id); if (el) obs.observe(el); });
+  </script>
+</body>
+</html>
