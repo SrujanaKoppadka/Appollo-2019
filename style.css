@@ -467,7 +467,7 @@ nav.scrolled {
 
 .hero-badge {
   display: inline-block;
-  background:#aeeb05;
+  background: #aeeb05;
   border: 1.5px solid #1e6b2e33;
   color: black;
   font-family: 'Poppins', sans-serif;
@@ -496,7 +496,7 @@ nav.scrolled {
 
 .hero-sub {
   font-size: 19px;
-  color:#ffffff;
+  color: #ffffff;
   line-height: 1.75;
   margin-bottom: 2.5rem;
   max-width: 480px;
@@ -513,9 +513,9 @@ nav.scrolled {
   align-items: center;
   background: #aeeb05;
   color: rgb(0, 0, 0);
-  border: 2px solid  #aeeb05;
+  border: 2px solid #aeeb05;
   padding: 15px 34px;
-  border-radius: var(--radius-full) ;
+  border-radius: var(--radius-full);
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   font-weight: 600;
@@ -525,9 +525,9 @@ nav.scrolled {
 }
 
 .btn-primary:hover {
-  background:var(--green-dark);
+  background: var(--green-dark);
   transform: translateY(-3px);
-  color:white;
+  color: white;
   box-shadow: 0 10px 28px #1e6b2e4d;
 }
 
@@ -749,25 +749,29 @@ nav.scrolled {
 
 .about-img-wrap {
   max-width: 480px;
-  margin:0 auto;
-  position: relative; /* important for positioning badge */
+  margin: 0 auto;
+  position: relative;
   background: var(--mint);
   border-radius: 35px;
   overflow: visible;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: box-shadow var(--transition);
 }
+
 .about-img-wrap:hover {
   box-shadow: var(--shadow-lg);
 }
 
+/* FIX: was 80% — now 100% to fill the wrapper with no dead space */
 .about-img-wrap img {
   width: 90%;
   height: auto;
   max-height: 500px;
   display: block;
   border-radius: 40px;
+  transition: transform var(--transition);
 }
 
 .about-img-wrap:hover img {
@@ -776,9 +780,9 @@ nav.scrolled {
 
 .since-badge {
   position: absolute;
-  top: -50px;   /* pushes outside */
-  left: -1px; 
-  bottom: auto;   /* pushes outside */
+  top: -50px;
+  left: -1px;
+  bottom: auto;
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -789,8 +793,9 @@ nav.scrolled {
   justify-content: center;
   text-align: center;
   color: white;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
   z-index: 2;
+  transition: transform var(--transition), box-shadow var(--transition);
 }
 
 .since-badge:hover {
@@ -805,13 +810,13 @@ nav.scrolled {
   color: var(--gold-warm);
 }
 
-
 .since-badge .year-label {
   font-size: 10px;
   opacity: 0.85;
   margin-top: 3px;
   padding: 0 8px;
 }
+
 /* ═══════════════════════════════════════════════
    S3 — BENEFITS (Cream)
    ═══════════════════════════════════════════════ */
@@ -833,7 +838,6 @@ nav.scrolled {
   text-align: center;
   border: 1px solid #b8780014;
   transition: transform 0.35s var(--ease-bounce), box-shadow 0.35s ease;
-  
 }
 
 .benefit-card:hover {
@@ -1483,9 +1487,9 @@ footer {
 }
 
 .footer-brand-row {
-    display: flex;
-  flex-direction: column;   /* 🔥 makes logo go above */
-  align-items: flex-start; 
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .footer-logo-img {
@@ -1555,7 +1559,7 @@ footer {
 /* ═══════════════════════════════════════════════
    RESPONSIVE
    ═══════════════════════════════════════════════ */
-@media (max-width:1100px) {
+@media (max-width: 1100px) {
   .nav-inner {
     padding: 0 1.5rem;
   }
@@ -1609,7 +1613,7 @@ footer {
   }
 }
 
-@media (max-width:768px) {
+@media (max-width: 768px) {
   .nav-links {
     position: fixed;
     top: 0;
@@ -1626,6 +1630,7 @@ footer {
     z-index: 999;
     visibility: hidden;
   }
+
   .nav-links.open {
     transform: translateX(0);
     visibility: visible;
@@ -1735,6 +1740,7 @@ footer {
     grid-template-columns: 1fr;
     gap: 3rem;
   }
+
   .footer-brand {
     text-align: center;
   }
@@ -1745,11 +1751,10 @@ footer {
     text-align: center;
   }
 
-     .footer-brand-row {
-    align-items: center;     /* center logo horizontally */
-    text-align: center;      /* center text */
+  .footer-brand-row {
+    align-items: center;
+    text-align: center;
   }
-  
 
   .footer-col ul {
     align-items: center;
@@ -1762,7 +1767,7 @@ footer {
   }
 }
 
-@media (max-width:576px) {
+@media (max-width: 576px) {
   .hero h1 {
     font-size: 30px;
   }
@@ -1802,12 +1807,12 @@ footer {
   }
 
   .about-img-wrap {
-    height: auto;
-    padding: 1rem;
+    height: 260px;
+    padding: 1.5rem;
   }
 
   .since-badge .year {
-    font-size: 24px;
+    font-size: 36px;
   }
 
   .benefit-card {
@@ -1823,7 +1828,7 @@ footer {
   }
 }
 
-@media (max-width:400px) {
+@media (max-width: 400px) {
   .nav-inner {
     padding: 0 1rem;
     height: 72px;
